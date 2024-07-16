@@ -21,8 +21,12 @@ function creationCarte(e){
 
   const nvTab = [...monState, {tache: tache, txt: txt}]
   setMonState(nvTab);
-  
+
+  setTache('');
+  setTxt('');
 }
+
+
 
   return (
    <div>
@@ -39,6 +43,7 @@ function creationCarte(e){
           <div className='control'>
             <label htmlFor='tache' className='label'>Tâche</label>
             <input
+            value={tache}
             className='input'
             type='text'
              id='tache'
@@ -54,6 +59,7 @@ function creationCarte(e){
             <label htmlFor='txt' className='label'>Contenu de la tâche
             </label>
             <textarea
+            value={txt}
             className='textarea'
             type='text'
              id='txt'
