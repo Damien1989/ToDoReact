@@ -26,7 +26,13 @@ function creationCarte(e){
   setTxt('');
 }
 
+function deleteCards(index) {
 
+  const cleanCards = [...monState];
+
+  setMonState(cleanCards.filter(item => cleanCards.indexOf(item)
+  !== cleanCards.indexOf(cleanCards[index])))
+}
 
   return (
    <div>
@@ -82,6 +88,7 @@ function creationCarte(e){
         key={index}
         tache={todo.tache}
         txt={todo.txt}
+        deleteCart={deleteCards}
         />
       ))
       }
