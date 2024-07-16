@@ -1,8 +1,18 @@
 import './App.css';
 import '../node_modules/bulma/css/bulma.min.css';
 import Header from './Components/Header/Header.js';
+import Card from './Components/Card/Card.js';
+import { useState } from 'react';
 
 function App() {
+
+
+const [monState, setMonState] = useState([
+  {tache: 'Promener son chien', txt:'Tôt le matin'},
+  {tache: 'Faire du sport', txt:'3 fois par semaine'},
+  {tache: 'Manger au resto', txt:'Le samedi midi avec Momo'}
+])
+
   return (
    <div>
     <Header />
@@ -44,9 +54,18 @@ function App() {
 
           <button type='submit' className='button is-link'>Créer une tâche</button>
         </div>
-
-
       </form>
+
+      {
+      monState.map((todo, index) => (
+        <Card
+        key={index}
+        tache={todo.tache}
+        txt={todo.txt}
+        />
+      ))
+      }
+
     </div>
     </div>
   );
