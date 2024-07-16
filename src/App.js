@@ -13,6 +13,17 @@ const [monState, setMonState] = useState([
   {tache: 'Manger au resto', txt:'Le samedi midi avec Momo'}
 ])
 
+const [tache, setTache] = useState();
+const [txt, setTxt] = useState();
+
+function creationCarte(e){
+  e.preventDefault();
+
+  const nvTab = [...monState, {tache: tache, txt: txt}]
+  setMonState(nvTab);
+  
+}
+
   return (
    <div>
     <Header />
@@ -23,7 +34,7 @@ const [monState, setMonState] = useState([
         Rentrez vos tâches à faire
       </h2>
 
-      <form>
+      <form onSubmit={creationCarte}>
         <div className='field'>
           <div className='control'>
             <label htmlFor='tache' className='label'>Tâche</label>
@@ -31,7 +42,9 @@ const [monState, setMonState] = useState([
             className='input'
             type='text'
              id='tache'
-              placeholder='fais 1 tâche'/>
+              placeholder='fais 1 tâche'
+              onChange={e => setTache(e.target.value)}
+              />
           </div>
         </div>
 
@@ -45,6 +58,7 @@ const [monState, setMonState] = useState([
             type='text'
              id='txt'
               placeholder='fais 1 tâche'
+              onChange={e => setTxt(e.target.value)}
               >
               </textarea>
           </div>
