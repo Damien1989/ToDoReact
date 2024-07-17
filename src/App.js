@@ -69,7 +69,7 @@ function deleteCards(index) {
             className='textarea'
             type='text'
              id='txt'
-              placeholder='fais 1 tâche'
+              placeholder='Décris ton activité'
               onChange={e => setTxt(e.target.value)}
               >
               </textarea>
@@ -86,6 +86,7 @@ function deleteCards(index) {
       monState.map((todo, index) => (
         <Card
         key={index}
+        index={index}
         tache={todo.tache}
         txt={todo.txt}
         deleteCart={deleteCards}
